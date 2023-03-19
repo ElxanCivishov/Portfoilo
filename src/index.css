@@ -106,12 +106,12 @@ body {
   background: var(--smoky-black);
 }
 
-img,
+/* img,
 a,
 button,
 span {
   display: block;
-}
+} */
 
 /* button {
   font: inherit;
