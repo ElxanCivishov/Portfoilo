@@ -1,19 +1,17 @@
 import { useState } from "react";
-import { Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { signIn } from "../../config/Firebase";
+import { signIn } from "../config/Firebase";
 
-import "./auth.css";
+import "./../components/css/auth.css";
 
-const Login = () => {
+const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [authUser, setAuthUser] = useState(false);
 
   const login = (e) => {
     signIn(email, password)
       .then(() => {
-        setAuthUser(true);
+        toast.success("Successfully logged");
       })
       .catch((err) => {
         toast.error("User not found");
@@ -27,7 +25,6 @@ const Login = () => {
         <div className="shape"></div>
         <div className="shape"></div>
       </div>
-      {authUser && <Navigate to="/admin" />}
       <div className="form">
         <h3>Admin</h3>
         <label htmlFor="email">Email</label>
@@ -56,4 +53,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignIn;
