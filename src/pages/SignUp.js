@@ -1,29 +1,53 @@
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
+import {
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  Link,
+  Grid,
+  Box,
+  Typography,
+  Container,
+} from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 
-export default function Login() {
-  const [mode, setMode] = useState("light");
+import { changeName, changeEmail, changePassword } from "../redux/authSlice";
 
+export default function Login() {
+  const name = useSelector((state) => state.auth.name);
+  const email = useSelector((state) => state.auth.email);
+  const password = useSelector((state) => state.auth.password);
+
+  const dispatch = useDispatch();
+
+  const [mode, setMode] = useState("light");
   const theme = createTheme({
     palette: {
       mode: mode,
     },
   });
 
+  const handleChangeName = (e) => {
+    dispatch(changeName(e.currentTarget.value));
+  };
+
+  const handleChangeEmail = (e) => {
+    dispatch(changeEmail(e.currentTarget.value));
+  };
+
+  const handleChangePassword = (e) => {
+    dispatch(changePassword(e.currentTarget.value));
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
+      name: data.get("fullname"),
       email: data.get("email"),
       password: data.get("password"),
     });
@@ -69,6 +93,8 @@ export default function Login() {
               name="fullname"
               autoComplete="fullname"
               autoFocus
+              value={name}
+              onChange={(e) => handleChangeName(e)}
             />
             <TextField
               margin="normal"
@@ -78,6 +104,8 @@ export default function Login() {
               label="Email Address"
               name="email"
               autoComplete="email"
+              value={email}
+              onChange={(e) => handleChangeEmail(e)}
             />
             <TextField
               margin="normal"
@@ -88,6 +116,8 @@ export default function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={password}
+              onChange={(e) => handleChangePassword(e)}
             />
 
             <Button

@@ -1,25 +1,55 @@
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
+import {
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  Link,
+  Grid,
+  Box,
+  Typography,
+  Container,
+} from "@mui/material";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const theme = createTheme();
+import { useSelector, useDispatch } from "react-redux";
+import { useState } from "react";
+
+import { changeEmail, changePassword } from "../redux/authSlice";
 
 export default function Login() {
+  const email = useSelector((state) => state.auth.email);
+  const password = useSelector((state) => state.auth.password);
+
+  const dispatch = useDispatch();
+
+  const [mode, setMode] = useState("light");
+  const theme = createTheme({
+    palette: {
+      mode: mode,
+    },
+  });
+
+  const handleChangeEmail = (e) => {
+    dispatch(changeEmail(e.currentTarget.value));
+  };
+
+  const handleChangePassword = (e) => {
+    dispatch(changePassword(e.currentTarget.value));
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
+      name: data.get("fullname"),
       email: data.get("email"),
       password: data.get("password"),
     });
+  };
+
+  const handleMode = () => {
+    setMode("dark");
   };
 
   return (
@@ -34,7 +64,10 @@ export default function Login() {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
+          <Avatar
+            onClick={() => handleMode()}
+            sx={{ m: 1, bgcolor: "primary.main" }}
+          >
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -55,6 +88,8 @@ export default function Login() {
               name="email"
               autoComplete="email"
               autoFocus
+              value={email}
+              onChange={(e) => handleChangeEmail(e)}
             />
             <TextField
               margin="normal"
@@ -65,6 +100,8 @@ export default function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={password}
+              onChange={(e) => handleChangePassword(e)}
             />
 
             <Button
