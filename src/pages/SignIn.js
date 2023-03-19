@@ -9,17 +9,21 @@ import {
   Typography,
   Container,
 } from "@mui/material";
+
+import ClipLoader from "react-spinners/ClipLoader";
+
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import { useSelector, useDispatch } from "react-redux";
 import { useState } from "react";
 
-import { changeEmail, changePassword } from "../redux/authSlice";
+import { changeEmail, changePassword, login } from "../redux/authSlice";
 
 export default function Login() {
   const email = useSelector((state) => state.auth.email);
   const password = useSelector((state) => state.auth.password);
+  const isLoading = useSelector((state) => state.auth.isLoading);
 
   const dispatch = useDispatch();
 
@@ -40,12 +44,7 @@ export default function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      name: data.get("fullname"),
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+    dispatch(login({ email, password }));
   };
 
   const handleMode = () => {
@@ -108,9 +107,20 @@ export default function Login() {
               type="submit"
               fullWidth
               variant="contained"
+              disabled={isLoading}
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              {isLoading ? (
+                <ClipLoader
+                  color="green"
+                  loading={isLoading}
+                  aria-label="Loading Spinner"
+                  data-testid="loader"
+                  size={20}
+                />
+              ) : (
+                "Sign in"
+              )}
             </Button>
             <Grid container>
               <Grid item xs>
