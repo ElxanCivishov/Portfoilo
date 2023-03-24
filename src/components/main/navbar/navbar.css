@@ -19,6 +19,7 @@
   align-items: center;
   padding: 0 10px;
   gap: 20px;
+  height: 60px;
 }
 
 .navbar-link {
@@ -27,6 +28,14 @@
   padding: 20px 7px;
   transition: color var(--transition-1);
   --fs-8: 14px;
+}
+
+.navbar-link Link {
+  font: inherit;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
 }
 
 .navbar-link:hover,

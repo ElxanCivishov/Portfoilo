@@ -1,10 +1,9 @@
 import Title from "../title/Title";
-
+import Testimonial from "./testimonial/Testimonial";
+import Client from "./clients/Client";
 import Service from "./service/Service";
 
 import "./about.css";
-import Testimonial from "./testimonial/Testimonial";
-import Client from "./clients/Client";
 
 const About = () => {
   const about = {
@@ -14,18 +13,16 @@ const About = () => {
       "My job is to build your website so that it is functional anduser-friendly but at the same time attractive. Moreover, I addpersonal touch to your product and make sure that is eye-catchingand easy to use. My aim is to bring across your message and identityin the most creative way. I created web design for many famous brandcompanies.",
   };
   return (
-    <>
-      <article className="active" data-page="about">
-        <Title>About me</Title>
-        <section className="about-text">
-          {about.textOne && <p>{about.textOne}</p>}
-          {about.textTwo && <p>{about.textTwo}</p>}
-        </section>
-        <Service />
-        <Testimonial />
-        <Client />
-      </article>
-    </>
+    <article className="active" data-page="about">
+      <Title>About me</Title>
+      <section className="about-text">
+        {about.textOne && <p>{about.textOne}</p>}
+        {about.textTwo && <p>{about.textTwo}</p>}
+      </section>
+      <Service />
+      <Testimonial />
+      <Client />
+    </article>
   );
 };
 

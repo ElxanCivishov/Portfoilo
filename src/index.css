@@ -124,10 +124,6 @@ article {
   z-index: 1;
 }
 
-article {
-  display: none;
-}
-
 article.active {
   display: block;
   animation: fade 0.5s ease backwards;

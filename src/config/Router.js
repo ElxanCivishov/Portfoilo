@@ -4,7 +4,7 @@ import { useLoggedIn } from "./hooks";
 import Admin from "./../pages/Admin";
 import SignIn from "./../pages/SignIn";
 import SignUp from "./../pages/SignUp";
-import Resume from "./../pages/Resume";
+import Resume from "../components/main/resume/Resume";
 import MainLayout from "../layout/MainLayout";
 import About from "../components/main/about/About";
 
@@ -15,7 +15,7 @@ const Router = () => {
     <>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/" element={<About />} />
+          <Route path="/*" element={<About />} />
           <Route path="/resume" element={<Resume />} />
         </Route>
 

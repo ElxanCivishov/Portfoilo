@@ -6,6 +6,7 @@ import client3 from "../../../../images/logo-3-color.png";
 import client4 from "../../../../images/logo-4-color.png";
 import client5 from "../../../../images/logo-5-color.png";
 import client6 from "../../../../images/logo-6-color.png";
+
 import "./client.css";
 
 const Client = () => {
