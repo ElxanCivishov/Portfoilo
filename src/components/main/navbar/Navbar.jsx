@@ -1,62 +1,69 @@
-import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "./navbar.css";
 
 const Navbar = () => {
   const location = useLocation().pathname;
-  const [activeLink, setActiveLink] = useState("about");
+
   return (
     <nav className="navbar">
       <ul className="navbar-list">
-        <li className="navbar-item" onClick={() => setActiveLink("about")}>
+        <li className="navbar-item">
           <Link
             to="/"
             className={
-              activeLink === "about" ? "navbar-link  active" : "navbar-link"
+              location === "/resume"
+                ? "navbar-link"
+                : location === "/blog"
+                ? "navbar-link"
+                : location === "/portfolio"
+                ? "navbar-link"
+                : location === "/contact"
+                ? "navbar-link"
+                : "navbar-link active"
             }
           >
             About
           </Link>
         </li>
 
-        <li className="navbar-item" onClick={() => setActiveLink("resume")}>
+        <li className="navbar-item">
           <Link
             to="/resume"
             className={
-              activeLink === "resume" ? "navbar-link  active" : "navbar-link"
+              location === "/resume" ? "navbar-link  active" : "navbar-link"
             }
           >
             Resume
           </Link>
         </li>
 
-        <li className="navbar-item" onClick={() => setActiveLink("portfolio")}>
+        <li className="navbar-item">
           <Link
             to="portfolio"
             className={
-              activeLink === "portfolio" ? "navbar-link  active" : "navbar-link"
+              location === "/portfolio" ? "navbar-link  active" : "navbar-link"
             }
           >
             Portfolio
           </Link>
         </li>
 
-        <li className="navbar-item" onClick={() => setActiveLink("blog")}>
+        <li className="navbar-item">
           <Link
             to="/blog"
             className={
-              activeLink === "blog" ? "navbar-link  active" : "navbar-link"
+              location === "/blog" ? "navbar-link  active" : "navbar-link"
             }
           >
             Blog
           </Link>
         </li>
 
-        <li className="navbar-item" onClick={() => setActiveLink("contact")}>
+        <li className="navbar-item">
           <Link
             to="contact"
             className={
-              activeLink === "contact" ? "navbar-link  active" : "navbar-link"
+              location === "/contact" ? "navbar-link  active" : "navbar-link"
             }
           >
             Contact
