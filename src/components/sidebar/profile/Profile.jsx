@@ -1,24 +1,33 @@
 import "./profile.css";
 
-import { BiChevronDown } from "react-icons/bi";
+import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 import logo from "../../../images/my-avatar.png";
 
-const Profile = ({ profile }) => {
+const Profile = ({ profile, setActive, active }) => {
   return (
     <>
-      <div class="sidebar-info">
-        <div class="avatar-box">
+      <div className="sidebar-info">
+        <div className="avatar-box">
           <img src={logo} alt={profile.fullName} width="80" />
         </div>
-        <div class="info-content">
-          <h1 class="name" title={profile.fullName}>
+        <div className="info-content">
+          <h1 className="name" title={profile.fullName}>
             {profile.fullName}
           </h1>
-          <p class="title">{profile.job}</p>
+          <p className="title">{profile.job}</p>
         </div>
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-          <BiChevronDown />
+        <button className="info_more-btn" onClick={() => setActive(!active)}>
+          {active ? (
+            <>
+              <span>Hide Contacts</span>
+              <BiChevronUp />
+            </>
+          ) : (
+            <>
+              <span>Show Contacts</span>
+              <BiChevronDown />
+            </>
+          )}
         </button>
       </div>
     </>

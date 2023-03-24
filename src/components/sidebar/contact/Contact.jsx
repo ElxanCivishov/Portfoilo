@@ -4,70 +4,72 @@ import { MdEmail, MdDateRange, MdOutlineLocationOn } from "react-icons/md";
 import { BsPhone } from "react-icons/bs";
 import { FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa";
 
+import "./contact.css";
+
 const Contact = ({ profile }) => {
   return (
-    <div class="sidebar-info_more">
-      <div class="separator"></div>
+    <div className="sidebar-info_more">
+      <div className="separator"></div>
 
-      <ul class="contacts-list">
-        <li class="contact-item">
-          <div class="icon-box">
+      <ul className="contacts-list">
+        <li className="contact-item">
+          <div className="icon-box">
             <MdEmail />
           </div>
 
-          <div class="contact-info">
-            <p class="contact-title">Email</p>
-            <a href={`mailto:${profile.email}`} class="contact-link">
+          <div className="contact-info">
+            <p className="contact-title">Email</p>
+            <a href={`mailto:${profile.email}`} className="contact-link">
               {profile.email}
             </a>
           </div>
         </li>
 
-        <li class="contact-item">
-          <div class="icon-box">
+        <li className="contact-item">
+          <div className="icon-box">
             <BsPhone />
           </div>
-          <div class="contact-info">
-            <p class="contact-title">Phone</p>
+          <div className="contact-info">
+            <p className="contact-title">Phone</p>
 
-            <a href={`tel:${profile.phone}`} class="contact-link">
+            <a href={`tel:${profile.phone}`} className="contact-link">
               {profile.phone}
             </a>
           </div>
         </li>
-        <li class="contact-item">
-          <div class="icon-box">
+        <li className="contact-item">
+          <div className="icon-box">
             <MdDateRange />
           </div>
-          <div class="contact-info">
-            <p class="contact-title">Birthday</p>
+          <div className="contact-info">
+            <p className="contact-title">Birthday</p>
             <time dateTime={profile.date}>{profile.date}</time>
           </div>
         </li>
-        <li class="contact-item">
-          <div class="icon-box">
+        <li className="contact-item">
+          <div className="icon-box">
             <MdOutlineLocationOn />
           </div>
-          <div class="contact-info">
-            <p class="contact-title">Location</p>
+          <div className="contact-info">
+            <p className="contact-title">Location</p>
             <address>{profile.location}</address>
           </div>
         </li>
       </ul>
-      <div class="separator"></div>
-      <ul class="social-list">
-        <li class="social-item">
-          <Link to="#" class="social-link">
+      <div className="separator"></div>
+      <ul className="social-list">
+        <li className="social-item">
+          <Link to="#" className="social-link">
             <FaFacebook />
           </Link>
         </li>
-        <li class="social-item">
-          <Link to="#" class="social-link">
+        <li className="social-item">
+          <Link to="#" className="social-link">
             <FaTwitter />
           </Link>
         </li>
-        <li class="social-item">
-          <Link to="#" class="social-link">
+        <li className="social-item">
+          <Link to="#" className="social-link">
             <FaInstagram />
           </Link>
         </li>

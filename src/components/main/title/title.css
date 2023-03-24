@@ -1,0 +1,48 @@
+.article-title {
+  margin-bottom: 30px;
+}
+
+.article-title {
+  position: relative;
+  padding-bottom: 7px;
+}
+
+.article-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px;
+  height: 3px;
+  background: var(--text-gradient-yellow);
+  border-radius: 3px;
+}
+
+.about .article-title {
+  margin-bottom: 15px;
+}
+
+@media (min-width: 580px) {
+  .article-title {
+    font-weight: var(--fw-600);
+    padding-bottom: 15px;
+  }
+
+  .article-title::after {
+    width: 40px;
+    height: 5px;
+  }
+
+  .about .article-title {
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .article-title {
+    padding-bottom: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+}

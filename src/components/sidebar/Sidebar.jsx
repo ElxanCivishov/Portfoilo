@@ -1,7 +1,11 @@
 import Contact from "./contact/Contact.jsx";
 import Profile from "./profile/Profile.jsx";
+import "./sidebar.css";
+import { useState } from "react";
 
 const Sidebar = () => {
+  const [active, setActive] = useState(false);
+
   const profile = {
     photo: "",
     fullName: "Richard hanrick",
@@ -12,8 +16,8 @@ const Sidebar = () => {
     location: "Sacramento, California, USA",
   };
   return (
-    <aside className="sidebar" data-sidebar>
-      <Profile profile={profile} />
+    <aside className={active ? "active sidebar" : "sidebar"}>
+      <Profile profile={profile} setActive={setActive} active={active} />
       <Contact profile={profile} />
     </aside>
   );

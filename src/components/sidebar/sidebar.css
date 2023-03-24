@@ -1,0 +1,60 @@
+.sidebar {
+  background: var(--eerie-black-2);
+  border: 1px solid var(--jet);
+  border-radius: 20px;
+  padding: 15px;
+  box-shadow: var(--shadow-1);
+  z-index: 1;
+  margin-bottom: 15px;
+  max-height: 110px;
+  overflow: hidden;
+  transition: var(--transition-2);
+  -webkit-transition: var(--transition-2);
+  -moz-transition: var(--transition-2);
+  -ms-transition: var(--transition-2);
+  -o-transition: var(--transition-2);
+}
+
+.sidebar.active {
+  max-height: 405px;
+}
+
+@media (min-width: 580px) {
+  .sidebar {
+    width: 520px;
+    margin-inline: auto;
+    padding: 30px;
+    max-height: 180px;
+    margin-bottom: 30px;
+  }
+
+  .sidebar.active {
+    max-height: 584px;
+  }
+}
+
+@media (min-width: 768px) {
+  .sidebar {
+    width: 700px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    width: 950px;
+    box-shadow: var(--shadow-5);
+  }
+}
+
+@media (min-width: 1250px) {
+  .sidebar {
+    width: auto;
+    position: sticky;
+    top: 60px;
+    max-height: max-content;
+    height: 100%;
+    margin-bottom: 0;
+    padding-top: 60px;
+    z-index: 1;
+  }
+}
