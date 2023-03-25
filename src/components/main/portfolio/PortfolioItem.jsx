@@ -1,11 +1,12 @@
 import { FiEye } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
-const PortfolioItem = ({ projects }) => {
+const PortfolioItem = ({ filter }) => {
   return (
     <>
-      {projects.map((project) => (
+      {filter.map((project) => (
         <li key={project.id} className="project-item  active">
-          <a href="#">
+          <Link to={project.url}>
             <div className="project-img">
               <div className="project-item-icon-box">
                 <FiEye />
@@ -14,7 +15,7 @@ const PortfolioItem = ({ projects }) => {
             </div>
             <h3 className="project-title">{project.content}</h3>
             <p className="project-category">{project.title}</p>
-          </a>
+          </Link>
         </li>
       ))}
     </>
