@@ -15,23 +15,21 @@ const Router = () => {
   const isLoggedIn = useLoggedIn();
 
   return (
-    <>
-      <Routes>
-        <Route element={<MainLayout />}>
-          <Route path="/*" element={<About />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
-        </Route>
+    <Routes>
+      <Route element={<MainLayout />}>
+        <Route path="/*" element={<About />} />
+        <Route path="/resume" element={<Resume />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+      </Route>
 
-        <Route element={<AuthLayout />}>
-          <Route path="/login" element={<SignIn />} />
-          <Route path="/register" element={<SignUp />} />
-        </Route>
-        {isLoggedIn && <Route path="/admin" element={<Admin />} />}
-      </Routes>
-    </>
+      <Route element={<AuthLayout />}>
+        <Route path="/login" element={<SignIn />} />
+        <Route path="/register" element={<SignUp />} />
+      </Route>
+      {isLoggedIn && <Route path="/admin" element={<Admin />} />}
+    </Routes>
   );
 };
 

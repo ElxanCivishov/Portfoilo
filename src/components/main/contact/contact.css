@@ -68,6 +68,14 @@ textarea.form-input::-webkit-resizer {
   border-color: var(--bittersweet-shimmer);
 }
 
+input,
+textarea {
+  display: block;
+  width: 100%;
+  background: none;
+  font: inherit;
+}
+
 .form-btn {
   position: relative;
   width: 100%;

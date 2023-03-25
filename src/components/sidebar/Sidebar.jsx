@@ -10,7 +10,7 @@ const Sidebar = () => {
     photo: "",
     fullName: "Richard hanrick",
     job: "Web Developer",
-    email: "elseveraassca@gmail.com",
+    email: "elxan.civihsov2000@gmail.com",
     phone: "0557655463",
     date: "1982-12-06",
     location: "Sacramento, California, USA",

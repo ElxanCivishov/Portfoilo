@@ -7,15 +7,12 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-import { useState } from "react";
-
 const AuthLayout = () => {
   const isLoggedIn = useLoggedIn();
 
-  const [mode, setMode] = useState("light");
   const theme = createTheme({
     palette: {
-      mode: mode,
+      mode: "dark",
     },
   });
 
@@ -25,17 +22,10 @@ const AuthLayout = () => {
     return <Navigate replace to="/admin" />;
   }
 
-  const handleMode = () => {
-    setMode("dark");
-  };
-
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs" sx={{ mt: 5 }}>
-        <Avatar
-          onClick={() => handleMode()}
-          sx={{ m: 1, mx: "auto", bgcolor: "primary.main" }}
-        >
+        <Avatar sx={{ m: 1, mx: "auto", bgcolor: "primary.main" }}>
           <LockOutlinedIcon />
         </Avatar>
         <Outlet />

@@ -34,6 +34,7 @@ export default function Login() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        bg: "red",
       }}
     >
       <Typography component="h1" variant="h5">
