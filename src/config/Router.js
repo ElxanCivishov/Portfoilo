@@ -9,6 +9,7 @@ import MainLayout from "../layout/MainLayout";
 import About from "../components/main/about/About";
 import Portfolio from "../components/main/portfolio/Portfolio";
 import Blog from "../components/main/blog/Blog";
+import Contact from "../components/main/contact/Contact";
 
 const Router = () => {
   const isLoggedIn = useLoggedIn();
@@ -21,6 +22,7 @@ const Router = () => {
           <Route path="/resume" element={<Resume />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
         </Route>
 
         <Route element={<AuthLayout />}>

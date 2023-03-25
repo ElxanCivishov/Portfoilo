@@ -33,6 +33,7 @@
 .contact-info {
   max-width: calc(100% - 46px);
   width: calc(100% - 46px);
+  box-sizing: border-box;
 }
 
 .contact-title {
@@ -42,12 +43,12 @@
   margin-bottom: 2px;
 }
 
-.contact-info :is(.contact-link, time, address) {
+.contact-info :is(.contact-link, span) {
   color: var(--white-2);
   font-size: var(--fs-7);
 }
 
-.contact-info address {
+.contact-info span {
   font-style: normal;
 }
 
@@ -110,12 +111,15 @@
   }
 
   .contact-info :is(.contact-link) {
+    max-width: 190px;
+    display: inline-block;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
   }
 
-  .contact-info :is(.contact-link, time, address) {
+  .contact-info :is(.contact-link, span) {
     --fs-7: 14px;
     font-weight: var(--fw-300);
   }

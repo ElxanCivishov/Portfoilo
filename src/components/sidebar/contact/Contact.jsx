@@ -43,7 +43,7 @@ const Contact = ({ profile }) => {
           </div>
           <div className="contact-info">
             <p className="contact-title">Birthday</p>
-            <time dateTime={profile.date}>{profile.date}</time>
+            <span className="date">{profile.date}</span>
           </div>
         </li>
         <li className="contact-item">
@@ -52,7 +52,7 @@ const Contact = ({ profile }) => {
           </div>
           <div className="contact-info">
             <p className="contact-title">Location</p>
-            <address>{profile.location}</address>
+            <span>{profile.location}</span>
           </div>
         </li>
       </ul>

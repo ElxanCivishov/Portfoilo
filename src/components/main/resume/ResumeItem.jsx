@@ -4,7 +4,7 @@ const ResumeItem = ({ resumeData }) => {
   return (
     <>
       {resumeData.map((item) => (
-        <div className="timeline">
+        <div key={item.id} className="timeline">
           <div className="title-wrapper">
             <div className="icon-box">
               <FiBookOpen />
@@ -13,7 +13,7 @@ const ResumeItem = ({ resumeData }) => {
           </div>
           <ol className="timeline-list">
             {item.content.map((listItem) => (
-              <li className="timeline-item">
+              <li key={listItem.id} className="timeline-item">
                 <h4 className="h4 timeline-item-title">{listItem.title}</h4>
                 <span>{listItem.date}</span>
                 <p className="timeline-text">{listItem.content}</p>

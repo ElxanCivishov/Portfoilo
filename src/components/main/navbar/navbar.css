@@ -25,9 +25,13 @@
 .navbar-link {
   color: var(--light-gray);
   font-size: var(--fs-8);
-  padding: 20px 7px;
+  /*padding: 20px 7px;
+  */
   transition: color var(--transition-1);
-  --fs-8: 14px;
+  -webkit-transition: color var(--transition-1);
+  -moz-transition: color var(--transition-1);
+  -ms-transition: color var(--transition-1);
+  -o-transition: color var(--transition-1);
 }
 
 .navbar-link Link {
@@ -45,6 +49,9 @@
 
 .navbar-link.active {
   color: var(--orange-yellow-crayola);
+}
+
+@media (min-width: 480px) {
 }
 
 @media (min-width: 768px) {

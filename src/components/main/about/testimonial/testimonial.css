@@ -188,7 +188,7 @@
   margin-bottom: 4px;
 }
 
-.modal-content time {
+.modal-content span {
   font-size: var(--fs-6);
   color: var(--light-gray-70);
   font-weight: var(--fw-300);

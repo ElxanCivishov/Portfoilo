@@ -4,7 +4,7 @@ const SkillItem = ({ skills }) => {
   return (
     <>
       {skills.map((item) => (
-        <li className="skills-item">
+        <li key={item.id} className="skills-item">
           <div className="title-wrapper">
             <h5 className="h5">{item.title}</h5>
             <div className="data">{item.degre}%</div>

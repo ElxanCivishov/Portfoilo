@@ -17,19 +17,12 @@ const TestimonialItem = ({ testimonials }) => {
           className="testimonials-item"
           onClick={(e) => handleModal(item)}
         >
-          <div className="content-card" data-testimonials-item>
+          <div className="content-card">
             <div className="testimonials-avatar-box">
-              <img
-                src={item.img}
-                alt={item.title}
-                width="60"
-                data-testimonials-avatar
-              />
+              <img src={item.img} alt={item.title} width="60" />
             </div>
-            <h4 className="h4 testimonials-item-title" data-testimonials-title>
-              {item.title}
-            </h4>
-            <div className="testimonials-text" data-testimonials-text>
+            <h4 className="h4 testimonials-item-title">{item.title}</h4>
+            <div className="testimonials-text">
               <p>{item.content}</p>
             </div>
           </div>

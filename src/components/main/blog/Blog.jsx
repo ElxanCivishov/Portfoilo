@@ -68,11 +68,11 @@ const Blog = () => {
   ];
   return (
     <>
-      <article class="blog" data-page="blog">
+      <article className="blog">
         <Title>Blog</Title>
 
-        <section class="blog-posts">
-          <ul class="blog-posts-list">
+        <section className="blog-posts">
+          <ul className="blog-posts-list">
             <BlogItem blogs={blogs} />
           </ul>
         </section>

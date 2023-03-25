@@ -186,6 +186,12 @@ article.active {
   cursor: pointer;
 }
 
+@media (min-width: 300px) {
+  main {
+    margin-bottom: 80px;
+  }
+}
+
 @media (min-width: 580px) {
   :root {
     --fs-1: 32px;
@@ -297,7 +303,7 @@ article.active {
   }
 
   .main-content {
-    min-width: 75%;
+    min-width: 72%;
     width: 75%;
     margin: 0;
   }
