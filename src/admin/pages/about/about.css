@@ -1,0 +1,27 @@
+.admin-about {
+  /* background-color: red; */
+  padding: 0px 10px;
+}
+
+.admin-about .about-text {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.admin-about .about-text .text-item {
+  background-color: rgb(224, 223, 223);
+
+  padding: 10px 20px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.admin-about .about-text .text-item p {
+  color: black;
+  font-weight: 400;
+}

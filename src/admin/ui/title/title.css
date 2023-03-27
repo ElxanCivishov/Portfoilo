@@ -1,0 +1,11 @@
+.admin-title {
+  width: 100%;
+  text-align: center;
+  padding: 10px 0px;
+}
+
+.admin-title h3 {
+  font-size: 24px;
+  color: rgb(29, 28, 28);
+}
+

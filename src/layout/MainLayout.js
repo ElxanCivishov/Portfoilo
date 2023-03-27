@@ -5,6 +5,7 @@ import Sidebar from "../components/sidebar/Sidebar";
 
 const MainLayout = () => {
   return (
+    // <div style={{ background: "red" }}>
     <main>
       <Sidebar />
       <div className="main-content">
@@ -12,6 +13,7 @@ const MainLayout = () => {
         <Outlet />
       </div>
     </main>
+    // </div>
   );
 };
 

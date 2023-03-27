@@ -1,17 +1,13 @@
-import { useDispatch } from "react-redux";
-import { logout } from "./../redux/authSlice";
+import Index from "../admin";
 
 const Admin = () => {
-  const dispatch = useDispatch();
-
-  const handleBtn = () => {
-    dispatch(logout());
-  };
-
   return (
-    <button style={{ color: "red" }} onClick={() => handleBtn()}>
-      logout
-    </button>
+    <>
+      <Index />
+      {/* <button style={{ color: "red" }} >
+        logout
+      </button> */}
+    </>
   );
 };
 

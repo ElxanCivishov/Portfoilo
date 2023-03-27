@@ -1,0 +1,184 @@
+:root {
+  --text-color: #242a31;
+}
+
+.sidebar-container {
+  width: 240px;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ccc;
+}
+
+.sidebar-container::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar-container .sidebar-wrapper {
+  padding: 10px 20px;
+  height: auto;
+}
+
+.sidebar-container .top {
+  padding: 10px 0px;
+  gap: 10px;
+}
+
+.sidebar-container .sidebar-wrapper .top .title {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.sidebar-container .sidebar-wrapper .top .title span {
+  color: rgba(255, 255, 255, 0.658);
+  font-size: 20px;
+}
+
+.sidebar-container .sidebar-wrapper .top .logo {
+  cursor: pointer;
+  margin-top: 20px;
+  width: 70px;
+  height: 70px;
+  margin: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 3px 2px black;
+  background-color: rgb(65, 62, 62);
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+
+.sidebar-container .sidebar-wrapper .top .logo:hover {
+  transform: scale(0.8);
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  -o-transform: scale(0.8);
+}
+
+.sidebar-container .sidebar-wrapper .top .logo .logo-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid white;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.sidebar-container .sidebar-wrapper .top .logo .logo-wrapper img {
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar-container .top .logo img {
+  width: 100%;
+  height: 100%;
+}
+
+hr {
+  margin: 10px 0px;
+}
+
+.sidebar-container .sidebar-wrapper .menu-inner {
+  /* background-color: red; */
+  margin: 10px 0px;
+  padding: 0px 10px;
+}
+
+.sidebar-container .sidebar-wrapper .menu-inner .menu-item {
+  width: 100%;
+  align-items: center;
+  margin-top: 10px;
+  padding: 3px 10px;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+}
+
+.sidebar-container .sidebar-wrapper .menu-inner .menu-item:last-child {
+  position: absolute;
+  width: 150px;
+  color: red;
+  bottom: 20px;
+}
+
+.sidebar-container .sidebar-wrapper .menu-inner .menu-item.active {
+  box-shadow: 4px 4px 24px -2px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 4px 4px 24px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 4px 24px -2px rgba(0, 0, 0, 0.75);
+}
+
+.sidebar-container .sidebar-wrapper .menu-inner .menu-item:hover {
+  margin-left: 10px;
+  box-shadow: 7px 10px 15px -6px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 7px 10px 15px -6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 7px 10px 15px -6px rgba(0, 0, 0, 0.75);
+}
+
+.sidebar-container .sidebar-wrapper .menu-inner .menu-item .menu-sub {
+  display: none;
+}
+
+.sidebar-container
+  .sidebar-wrapper
+  .menu-inner
+  .menu-item
+  .menu-sub
+  .menu-item {
+  list-style: circle;
+  list-style: inside;
+}
+.sidebar-container .sidebar-wrapper .menu-inner .menu-item span {
+  color: var(--text-color);
+}
+
+.sidebar-container .sidebar-wrapper .menu-inner .menu-item h3 {
+  display: inline-block;
+  margin-left: 10px;
+  font-weight: 500;
+  color: var(--text-color);
+}
+
+.sidebar-container .sidebar-wrapper .logout {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: 20px;
+}
+
+.sidebar-container .sidebar-wrapper .logout span {
+  color: rgb(49, 49, 49);
+  font-size: 16px;
+}
+
+.sidebar-container .sidebar-wrapper .logout h3 {
+  display: inline-block;
+  margin-left: 10px;
+  font-weight: 500;
+  font-size: 18px;
+  color: rgb(49, 49, 49);
+}
