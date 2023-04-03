@@ -1,0 +1,34 @@
+.upload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  margin: 20px 0px;
+  border: 1px solid rgb(156, 156, 156);
+}
+
+.upload label {
+  height: 100%;
+  height: 100%;
+}
+
+.upload label div {
+  height: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.upload label div .upload-icon {
+  font-size: 26px;
+}
+
+.upload label #uploadImage {
+  width: 0;
+  height: 0;
+}

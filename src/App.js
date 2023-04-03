@@ -12,7 +12,7 @@ function App() {
     <Provider store={store}>
       <CssBaseline />
       <Router />
-      <ToastContainer position="top-right" autoClose={3000} theme="light" />
+      <ToastContainer position="top-right" autoClose={1000} theme="light" />
     </Provider>
   );
 }

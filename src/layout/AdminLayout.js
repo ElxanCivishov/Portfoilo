@@ -4,7 +4,6 @@ import { useLoggedIn } from "../config/hooks";
 
 const AdminLayout = () => {
   const isLoggedIn = useLoggedIn();
-  console.log(isLoggedIn);
   if (isLoggedIn === null) {
     return <h2 style={{ color: "white" }}>loading...</h2>;
   } else if (isLoggedIn === false) {

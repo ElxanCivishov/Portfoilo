@@ -8,4 +8,10 @@ export const store = configureStore({
     auth,
     about,
   },
+
+  // this problem solving this code -> A non-serializable value was detected in the state, in the path: `about.draftAbout.createdAt`. Value: Sun Apr 02 2023 07:50:28 GMT+0400 (Azerbaijan Standard Time) Take a look at the reducer(s) handling this action type: about/changeDarftAboutContent.
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });

@@ -5,16 +5,19 @@ import { aboutRef } from "../config/Firebase";
 import { db } from "../config/Firebase";
 import { toast } from "react-toastify";
 
-export const addAbout = createAsyncThunk(
-  "about/addAbout",
+export const addAboutDoing = createAsyncThunk(
+  "doing/addAboutDoing",
   async (_, { getState }) => {
     await addDoc(aboutRef, getState().about.draftAbout);
   }
 );
 
-export const deleteAbout = createAsyncThunk("about/deleteAbout", async (id) => {
-  await deleteDoc(doc(aboutRef, id));
-});
+export const deleteAboutDoing = createAsyncThunk(
+  "doing/deleteAboutDoing",
+  async (id) => {
+    await deleteDoc(doc(aboutRef, id));
+  }
+);
 
 export const updateAbout = createAsyncThunk(
   "about/updateAbout",
@@ -47,7 +50,7 @@ const initialState = {
 };
 
 const aboutSlice = createSlice({
-  name: "about",
+  name: "doing",
   initialState,
   reducers: {
     changeDarftAboutContent: (state, action) => {

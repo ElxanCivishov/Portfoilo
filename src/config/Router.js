@@ -10,7 +10,7 @@ import Blog from "../components/main/blog/Blog";
 import Contact from "../components/main/contact/Contact";
 import AdminLayout from "../layout/AdminLayout";
 
-import AboutAdmin from "../admin/pages/about/About";
+import AboutAdmin from "../admin/pages/about/index";
 import ResumeAdmin from "../admin/pages/Resume";
 import Profile from "../admin/pages/Profile";
 import Users from "../admin/pages/Users";
@@ -18,10 +18,7 @@ import PortfolioAdmin from "../admin/pages/Portfolio";
 import BlogAdmin from "../admin/pages/Blog";
 import ContactAdmin from "../admin/pages/Contact";
 
-import { useLoggedIn } from "./hooks";
-
 const Router = () => {
-  const isLoggedIn = useLoggedIn();
   return (
     <Routes>
       <Route element={<MainLayout />}>
