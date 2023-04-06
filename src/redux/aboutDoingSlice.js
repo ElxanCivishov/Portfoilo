@@ -1,37 +1,44 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { addDoc, deleteDoc, doc, updateDoc } from "firebase/firestore";
+import { addDoc, deleteDoc, doc, setDoc, updateDoc } from "firebase/firestore";
 
-import { aboutRef } from "../config/Firebase";
-import { db } from "../config/Firebase";
+import { db, doingRef, storage } from "../config/Firebase";
 import { toast } from "react-toastify";
+import { deleteObject, ref } from "firebase/storage";
 
 export const addAboutDoing = createAsyncThunk(
   "doing/addAboutDoing",
   async (_, { getState }) => {
-    await addDoc(aboutRef, getState().about.draftAbout);
+    await setDoc(doc(doingRef, `${Date.now()}`), getState().doing.draftDoing, {
+      merge: true,
+    });
   }
 );
 
-export const deleteAboutDoing = createAsyncThunk(
-  "doing/deleteAboutDoing",
-  async (id) => {
-    await deleteDoc(doc(aboutRef, id));
+export const deleteDoing = createAsyncThunk(
+  "doing/deleteDoing",
+  async ({ id, imageUrl }) => {
+    const deleteRef = ref(storage, imageUrl);
+    await deleteDoc(doc(doingRef, id)).then(() => {
+      deleteObject(deleteRef).then(() => {});
+    });
   }
 );
 
-export const updateAbout = createAsyncThunk(
-  "about/updateAbout",
-  async ({ id, upatedData }) => {
+export const updateAboutDoing = createAsyncThunk(
+  "about/updateAboutDoing",
+  async ({ id, ...upatedData }) => {
     try {
       // Update the data in Firebase
-      const updateAboutRef = doc(db, "abouts", id);
+      const updateAboutRef = doc(db, "doingItems", id);
       await updateDoc(updateAboutRef, {
-        content: upatedData,
+        title: upatedData.title,
+        content: upatedData.content,
+        imageUrl: upatedData.imageUrl,
         modifiedAt: new Date().toLocaleString(),
       });
 
       // Return the updated data as the fulfilled value of the promise
-      return { id, upatedData };
+      return { id, ...upatedData };
     } catch (error) {
       toast.error(error);
     }
@@ -39,82 +46,81 @@ export const updateAbout = createAsyncThunk(
 );
 
 const initialState = {
-  draftAbout: {
+  draftDoing: {
+    id: `${Date.now()}`,
+    imageUrl: "",
+    title: "",
     content: "",
     uid: "",
     createdAt: new Date().toLocaleString(),
     modifiedAt: "",
   },
-  abouts: [],
+  doingItems: [],
   status: false,
 };
 
-const aboutSlice = createSlice({
+const aboutDoingSlice = createSlice({
   name: "doing",
   initialState,
   reducers: {
-    changeDarftAboutContent: (state, action) => {
-      state.draftAbout.content = action.payload.content;
-      state.draftAbout.uid = action.payload.uid;
+    changeDarftDoingImageUrl: (state, action) => {
+      state.draftDoing.imageUrl = action.payload.imageUrl;
+      state.draftDoing.uid = action.payload.uid;
+    },
+    changeDarftDoingTitle: (state, action) => {
+      state.draftDoing.title = action.payload;
+      console.log(action.payload);
+    },
+    changeDarftDoingContent: (state, action) => {
+      state.draftDoing.content = action.payload;
+      console.log(action.payload);
     },
 
-    clearDraftAbout: (state) => {
-      state.draftAbout = initialState.draftAbout;
-    },
+    // clearDraftAbout: (state) => {
+    //   state.draftAbout = initialState.draftAbout;
+    // },
 
-    setDraftAbout: (state, action) => {
-      state.draftAbout = action.payload;
-    },
+    // setDraftAbout: (state, action) => {
+    //   state.draftAbout = action.payload;
+    // },
 
-    setAbout: (state, action) => {
-      state.abouts = action.payload;
+    setDoingItems: (state, action) => {
+      state.doingItems = action.payload;
     },
   },
-  // extraReducers: {
-  //   [updateAbout.pending]: (state) => {
-  //     state.status = "loading";
-  //   },
-  //   [updateAbout.fulfilled]: (state, action) => {
-  //     toast.success("updated successfuly!");
-  //     console.log(action.payload);
-  //   },
-  //   [updateAbout.rejected]: (state, action) => {
-  //     state.status = "failed";
-  //   },
-  // },
 
   extraReducers: (builder) => {
     builder
-      .addCase(addAbout.pending, (state) => {
+      .addCase(addAboutDoing.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(addAbout.rejected, (state) => {
+      .addCase(addAboutDoing.rejected, (state) => {
         state.isLoading = false;
         toast.error("Something went wrong!");
       })
-      .addCase(addAbout.fulfilled, (state) => {
+      .addCase(addAboutDoing.fulfilled, (state) => {
         state.isLoading = false;
         toast.success("Added to database successfuly!");
       })
-      .addCase(updateAbout.pending, (state) => {
-        state.status = true;
-      })
-      .addCase(updateAbout.rejected, (state) => {
-        state.isLoading = false;
-        toast.error("Something went wrong!");
-      })
-      .addCase(updateAbout.fulfilled, (state) => {
-        state.isLoading = false;
-        toast.success("updated from database successfuly!");
-      })
-      .addCase(deleteAbout.pending, (state) => {
+      // .addCase(updateAbout.pending, (state) => {
+      //   state.status = true;
+      // })
+      // .addCase(updateAbout.rejected, (state) => {
+      //   state.isLoading = false;
+      //   toast.error("Something went wrong!");
+      // })
+      // .addCase(updateAbout.fulfilled, (state) => {
+      //   state.isLoading = false;
+      //   toast.success("updated from database successfuly!");
+      // })
+      .addCase(deleteDoing.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(deleteAbout.rejected, (state) => {
+      .addCase(deleteDoing.rejected, (state) => {
         state.isLoading = false;
         toast.error("Something went wrong!");
       })
-      .addCase(deleteAbout.fulfilled, (state) => {
+      .addCase(deleteDoing.fulfilled, (state) => {
         state.isLoading = false;
         toast.success("Deleted from database successfuly!");
       });
@@ -122,10 +128,10 @@ const aboutSlice = createSlice({
 });
 
 export const {
-  changeDarftAboutContent,
-  clearDraftAbout,
-  setDraftAbout,
-  setAbout,
-} = aboutSlice.actions;
+  changeDarftDoingTitle,
+  changeDarftDoingImageUrl,
+  changeDarftDoingContent,
+  setDoingItems,
+} = aboutDoingSlice.actions;
 
-export default aboutSlice.reducer;
+export default aboutDoingSlice.reducer;

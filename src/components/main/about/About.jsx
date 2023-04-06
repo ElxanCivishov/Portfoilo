@@ -23,7 +23,7 @@ const About = () => {
         {about && about.map((item) => <p key={item.id}>{item.text}</p>)}
       </section>
       <Service />
-      <Testimonial />
+      {/* <Testimonial /> */}
       <Client />
     </article>
   );
