@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import Title from "../../../ui/title/Title";
 
-import { useAboutListener } from "../../../../fetchDahaHooks/AboutContent";
+import { useAboutListener } from "../../../../fetchDataHooks/AboutContent";
 import { deleteAbout } from "../../../../redux/aboutSlice";
 
 import AddModal from "./AddModal";
