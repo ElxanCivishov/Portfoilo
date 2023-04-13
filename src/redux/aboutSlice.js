@@ -43,6 +43,8 @@ const initialState = {
     modifiedAt: "",
   },
   abouts: [],
+  SkillsLogo: [],
+  isLoading: false,
   status: false,
 };
 
@@ -66,19 +68,17 @@ const aboutSlice = createSlice({
     setAbout: (state, action) => {
       state.abouts = action.payload;
     },
+
+    setSkillsLogo: (state, action) => {
+      state.SkillsLogo = [...state.SkillsLogo, action.payload];
+    },
+
+    deleteSkillLogo: (state, action) => {
+      state.SkillsLogo = state.SkillsLogo.filter(
+        (item) => item !== action.payload
+      );
+    },
   },
-  // extraReducers: {
-  //   [updateAbout.pending]: (state) => {
-  //     state.status = "loading";
-  //   },
-  //   [updateAbout.fulfilled]: (state, action) => {
-  //     toast.success("updated successfuly!");
-  //     console.log(action.payload);
-  //   },
-  //   [updateAbout.rejected]: (state, action) => {
-  //     state.status = "failed";
-  //   },
-  // },
 
   extraReducers: (builder) => {
     builder
@@ -123,6 +123,8 @@ export const {
   clearDraftAbout,
   setDraftAbout,
   setAbout,
+  setSkillsLogo,
+  deleteSkillLogo,
 } = aboutSlice.actions;
 
 export default aboutSlice.reducer;

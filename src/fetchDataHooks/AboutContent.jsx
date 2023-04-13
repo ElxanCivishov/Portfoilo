@@ -1,13 +1,16 @@
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 
-import { onSnapshot, orderBy } from "firebase/firestore";
+import { onSnapshot } from "firebase/firestore";
 
-import { aboutRef, doingRef } from "../config/Firebase";
+import { aboutRef, doingRef, storage } from "../config/Firebase";
 
-import { setAbout } from "../redux/aboutSlice";
+import { setAbout, setSkillsLogo } from "../redux/aboutSlice";
 import { setDoingItems } from "../redux/aboutDoingSlice";
+import { getDownloadURL, listAll, ref } from "firebase/storage";
+import { toast } from "react-toastify";
 
+// get fetch all about contexts
 export const useAboutListener = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -21,6 +24,7 @@ export const useAboutListener = () => {
   }, [dispatch]);
 };
 
+// get fetch all doing items
 export const useAboutDoingListener = () => {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -34,7 +38,20 @@ export const useAboutDoingListener = () => {
   }, [dispatch]);
 };
 
-// const items = await getDocs(
-//   query(collection(db, "doingItems"), orderBy("id", "desc"))
-// );
-// return items.docs.map((doc) => doc.data());
+// get fetch all skills logo
+export const useAboutSkillsListener = () => {
+  const imageListRef = ref(storage, "Skills/");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    listAll(imageListRef)
+      .then((response) => {
+        response.items.map((item) => {
+          getDownloadURL(item).then((url) => {
+            dispatch(setSkillsLogo(url));
+          });
+        });
+      })
+      .catch((err) => toast.error(err));
+  }, [dispatch]);
+};

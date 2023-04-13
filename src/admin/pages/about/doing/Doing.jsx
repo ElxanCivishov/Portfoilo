@@ -44,7 +44,6 @@ const Doing = () => {
   return (
     <div style={{ paddingLeft: "20px", marginTop: "50px" }}>
       <Title>What's I am doing</Title>
-      {console.log(doingItems)}
       <Button
         onClick={() => setAddModal(true)}
         sx={{ m: 2 }}
