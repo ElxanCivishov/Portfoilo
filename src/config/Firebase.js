@@ -22,5 +22,6 @@ export const db = getFirestore(app);
 
 export const storage = getStorage(app);
 
+export const profileRef = collection(db, "profile");
 export const aboutRef = collection(db, "abouts");
 export const doingRef = collection(db, "doingItems");
