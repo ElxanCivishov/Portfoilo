@@ -51,10 +51,6 @@ const Main = () => {
               </li>
 
               <li className="select-item">
-                <button data-select-item>Web design</button>
-              </li>
-
-              <li className="select-item">
                 <button data-select-item>Applications</button>
               </li>
 
@@ -108,26 +104,6 @@ const Main = () => {
             <li
               className="project-item  active"
               data-filter-item
-              data-category="web design"
-            >
-              <a href="#">
-                <figure className="project-img">
-                  <div className="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src={img} alt="fundo" loading="lazy" />
-                </figure>
-
-                <h3 className="project-title">Fundo</h3>
-
-                <p className="project-category">Web design</p>
-              </a>
-            </li>
-
-            <li
-              className="project-item  active"
-              data-filter-item
               data-category="applications"
             >
               <a href="#">
@@ -142,46 +118,6 @@ const Main = () => {
                 <h3 className="project-title">Brawlhalla</h3>
 
                 <p className="project-category">Applications</p>
-              </a>
-            </li>
-
-            <li
-              className="project-item  active"
-              data-filter-item
-              data-category="web design"
-            >
-              <a href="#">
-                <figure className="project-img">
-                  <div className="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src={img} alt="dsm." loading="lazy" />
-                </figure>
-
-                <h3 className="project-title">DSM.</h3>
-
-                <p className="project-category">Web design</p>
-              </a>
-            </li>
-
-            <li
-              className="project-item  active"
-              data-filter-item
-              data-category="web design"
-            >
-              <a href="#">
-                <figure className="project-img">
-                  <div className="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src={img} alt="metaspark" loading="lazy" />
-                </figure>
-
-                <h3 className="project-title">MetaSpark</h3>
-
-                <p className="project-category">Web design</p>
               </a>
             </li>
 

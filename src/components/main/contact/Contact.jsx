@@ -30,7 +30,7 @@ const Contact = () => {
         <section className="mapbox">
           <div>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3037.4099108440373!2d49.874958214634425!3d40.421921363249055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x403089077a8dd483%3A0x12bd32f7f0de5073!2sSara%20Logistics%20Azerbaijan!5e0!3m2!1sen!2saz!4v1679729899619!5m2!1sen!2saz"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.2273989424834!2d49.808509876079505!3d40.38165245777342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d92c9019f1b%3A0x55f213fb89c3a4c0!2zWmFoaWQgWMmZbGlsb3YgS8O8w6fJmXNpLCBCYWvEsQ!5e0!3m2!1saz!2saz!4v1692085607505!5m2!1saz!2saz"
               width="400"
               height="300"
               style={{ border: "0" }}
